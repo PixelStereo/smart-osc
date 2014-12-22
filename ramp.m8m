@@ -31,9 +31,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>1493</real>
+		<real>16</real>
 		<key>WINDOW_Y</key>
-		<real>444</real>
+		<real>732</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -81,12 +81,8 @@
 			#apply the ramp
 			ramp[layerkey]['rate'] = (ramp[layerkey]['reminder'] - ramp[layerkey]['dest_value'])/ramp[layerkey]['time']</string>
 	<key>SCRIPT_INIT</key>
-	<string>import math
-
+	<string>#import math
 count = 0
-#valueReminder=None
-#restoreRate=None
-#restoreValue=None
 ramp = {}</string>
 	<key>SCRIPT_KEYWORDEVENT</key>
 	<string></string>
