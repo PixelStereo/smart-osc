@@ -31,9 +31,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>773</real>
+		<real>1493</real>
 		<key>WINDOW_Y</key>
-		<real>884</real>
+		<real>444</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -62,31 +62,32 @@
 			keyword = 'ctrl_' + '_'.join(keyword)
 		else:
 			layer_index = keyword[0].split('.')[1]
-			# support wildcard for instances
-			if layer_index == '*':
-				layer_index = -1
 			layer_index = int(layer_index)
 			keyword = keyword[1:]
 			keyword = 'ctrl_layer_' + '_'.join(keyword)
 		#print 'LAYER_INDEX' ,  layer_index
 		#end of translation
 		#print 'GO'
-		if restoreValue is None :
-			valueReminder =modul8.getValue(keyword,layer_index)
-		if 0 &lt; restoreInterpolation :
-			restoreRate=(valueReminder-maxValue)/restoreInterpolation
-			restoreValue= maxValue
-			#print '1' , 'KEYWORD' , keyword , 'VALUE2GO' , maxValue , 'LAYER_INDEX' , layer_index
-		else :
-			#print '2' , 'KEYWORD' , keyword , 'VALUE2GO' , maxValue , 'LAYER_INDEX' , layer_index
-			modul8.setValue(keyword, maxValue,layer_index)</string>
+		#if ramp is in progress on this keyword
+		if restoreInterpolation == 0:
+			modul8.setValue(keyword, maxValue , layer_index)
+		else:
+			layerkey = str(layer_index) + keyword
+			if ramp.get(layerkey):
+				#kill the previous ramp
+				del ramp[layerkey]
+			#start a new ramp on this keyword
+			ramp.setdefault(layerkey , {'reminder' :modul8.getValue(keyword,layer_index) , 'dest_value' : maxValue , 'time' : restoreInterpolation , 'keyword' : keyword , 'layer' : layer_index})
+			#apply the ramp
+			ramp[layerkey]['rate'] = (ramp[layerkey]['reminder'] - ramp[layerkey]['dest_value'])/ramp[layerkey]['time']</string>
 	<key>SCRIPT_INIT</key>
 	<string>import math
 
 count = 0
-valueReminder=None
-restoreRate=None
-restoreValue=None</string>
+#valueReminder=None
+#restoreRate=None
+#restoreValue=None
+ramp = {}</string>
 	<key>SCRIPT_KEYWORDEVENT</key>
 	<string></string>
 	<key>SCRIPT_MESSAGE</key>
@@ -95,18 +96,21 @@ restoreValue=None</string>
 	<string></string>
 	<key>SCRIPT_PERIODICAL</key>
 	<string>count += elapsed
+
 #print 'ELAPSED' , elapsed
 if count &gt; 1/30 :
-	if restoreValue is not None :
-		tmp=modul8.getValue(keyword,layer_index)-restoreRate*count
-		if (0&lt;=restoreRate and tmp-restoreValue&lt;0) or (restoreRate&lt;0 and 0&lt;tmp-restoreValue) :
-			modul8.setValue(keyword, restoreValue,layer_index)
-			restoreValue=None
-			#print "FIN DE L'AUTOMATION" , restoreValue
+	for layerkey in ramp.keys():
+		print ramp.keys()
+		ramp[layerkey]['tmp'] =modul8.getValue(ramp[layerkey]['keyword'],ramp[layerkey]['layer'])-ramp[layerkey]['rate'] * count
+		if (0&lt;=ramp[layerkey]['rate']  and ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']&lt;0) or (ramp[layerkey]['rate'] &lt;0 and 0&lt;ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']) :
+			modul8.setValue(ramp[layerkey]['keyword'], ramp[layerkey]['dest_value'],ramp[layerkey]['layer'])
+			del ramp[layerkey]
+			print "FIN DE L'AUTOMATION"
 		else :
-			#print "AUTOMATION" , tmp
-			modul8.setValue(keyword , tmp , layer_index)
-	count = 0</string>
+			#print "AUTOMATION"
+			modul8.setValue(ramp[layerkey]['keyword'] , ramp[layerkey]['tmp'] , ramp[layerkey]['layer'])
+	count = 0
+	#print 'COUNTER A ZERO'</string>
 	<key>SCRIPT_SERIALIZE</key>
 	<string></string>
 	<key>SHORT_DESCRIPTION</key>
