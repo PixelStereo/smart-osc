@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AUTHOR</key>
+	<string>Iduun</string>
+	<key>CONTROLS</key>
+	<array/>
+	<key>DESCRIPTION</key>
+	<string> ------&gt; contact@iduun.com</string>
+	<key>MODULE_AUTOFLUSH</key>
+	<false/>
+	<key>MODULE_CONTROL_ID_COUNTER</key>
+	<integer>92</integer>
+	<key>MODULE_LAYER_CONTEXTUAL</key>
+	<false/>
+	<key>MODULE_RESETDIRECTKEY_PAUSED</key>
+	<true/>
+	<key>MODULE_TITLEBAR_B</key>
+	<real>0.20392157137393951</real>
+	<key>MODULE_TITLEBAR_G</key>
+	<real>0.13333334028720856</real>
+	<key>MODULE_TITLEBAR_R</key>
+	<real>0.08235294371843338</real>
+	<key>PREFERENCES</key>
+	<dict>
+		<key>SCRIPT_STATE</key>
+		<string>PLAYING</string>
+		<key>WINDOW_HIDDEN</key>
+		<false/>
+		<key>WINDOW_MINIMIZED</key>
+		<false/>
+		<key>WINDOW_X</key>
+		<real>773</real>
+		<key>WINDOW_Y</key>
+		<real>884</real>
+	</dict>
+	<key>SCRIPT_CLEANUP</key>
+	<string></string>
+	<key>SCRIPT_DESERIALIZE</key>
+	<string></string>
+	<key>SCRIPT_EVENT</key>
+	<string>if type == 'OSC':
+	#this is an OSC message
+	if '/' == param['address'][0]:
+		#this start with a slash
+		#print it please
+		print "OSC INPUT : ", param['address'] , param['args']
+		#if it has 2 args I would excpect value2go and time2go
+		if len(param['args']) &gt; 1:
+			restoreInterpolation=param['args'][1]/1000
+		else:
+			restoreInterpolation=0
+		#print 'TIME2GO' , restoreInterpolation * 1000
+		maxValue = float(param['args'][0])
+		#print 'VALUE2GO' ,maxValue
+		#translate OSC address to modul8 keyword language
+		keyword = param['address']
+		keyword = keyword.split('/')[1:]
+		if keyword[0] == 'master':
+			layer_index = 0
+			keyword = 'ctrl_' + '_'.join(keyword)
+		else:
+			layer_index = keyword[0].split('.')[1]
+			# support wildcard for instances
+			if layer_index == '*':
+				layer_index = -1
+			layer_index = int(layer_index)
+			keyword = keyword[1:]
+			keyword = 'ctrl_layer_' + '_'.join(keyword)
+		#print 'LAYER_INDEX' ,  layer_index
+		#end of translation
+		#print 'GO'
+		if restoreValue is None :
+			valueReminder =modul8.getValue(keyword,layer_index)
+		if 0 &lt; restoreInterpolation :
+			restoreRate=(valueReminder-maxValue)/restoreInterpolation
+			restoreValue= maxValue
+			#print '1' , 'KEYWORD' , keyword , 'VALUE2GO' , maxValue , 'LAYER_INDEX' , layer_index
+		else :
+			#print '2' , 'KEYWORD' , keyword , 'VALUE2GO' , maxValue , 'LAYER_INDEX' , layer_index
+			modul8.setValue(keyword, maxValue,layer_index)</string>
+	<key>SCRIPT_INIT</key>
+	<string>import math
+
+count = 0
+valueReminder=None
+restoreRate=None
+restoreValue=None</string>
+	<key>SCRIPT_KEYWORDEVENT</key>
+	<string></string>
+	<key>SCRIPT_MESSAGE</key>
+	<string></string>
+	<key>SCRIPT_PAUSEEVENT</key>
+	<string></string>
+	<key>SCRIPT_PERIODICAL</key>
+	<string>count += elapsed
+#print 'ELAPSED' , elapsed
+if count &gt; 1/30 :
+	if restoreValue is not None :
+		tmp=modul8.getValue(keyword,layer_index)-restoreRate*count
+		if (0&lt;=restoreRate and tmp-restoreValue&lt;0) or (restoreRate&lt;0 and 0&lt;tmp-restoreValue) :
+			modul8.setValue(keyword, restoreValue,layer_index)
+			restoreValue=None
+			#print "FIN DE L'AUTOMATION" , restoreValue
+		else :
+			#print "AUTOMATION" , tmp
+			modul8.setValue(keyword , tmp , layer_index)
+	count = 0</string>
+	<key>SCRIPT_SERIALIZE</key>
+	<string></string>
+	<key>SHORT_DESCRIPTION</key>
+	<string>Smoothly change a param of the movie.</string>
+	<key>VERSION</key>
+	<string>0.1</string>
+	<key>WINDOW_HEIGHT</key>
+	<real>130</real>
+	<key>WINDOW_WIDTH</key>
+	<real>260</real>
+</dict>
+</plist>
