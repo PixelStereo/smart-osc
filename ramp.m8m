@@ -31,9 +31,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>16</real>
+		<real>1145</real>
 		<key>WINDOW_Y</key>
-		<real>732</real>
+		<real>733</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -45,7 +45,7 @@
 	if '/' == param['address'][0]:
 		#this start with a slash
 		#print it please
-		print "OSC INPUT : ", param['address'] , param['args']
+		#print "OSC INPUT : ", param['address'] , param['args']
 		#if it has 2 args I would excpect value2go and time2go
 		if len(param['args']) &gt; 1:
 			restoreInterpolation=param['args'][1]/1000
@@ -68,14 +68,15 @@
 		#print 'LAYER_INDEX' ,  layer_index
 		#end of translation
 		#print 'GO'
+		layerkey = str(layer_index) + keyword
 		#if ramp is in progress on this keyword
+		if ramp.get(layerkey):
+			#kill the previous ramp
+			#print 'KILL' , ramp[layerkey]
+			del ramp[layerkey]	
 		if restoreInterpolation == 0:
 			modul8.setValue(keyword, maxValue , layer_index)
 		else:
-			layerkey = str(layer_index) + keyword
-			if ramp.get(layerkey):
-				#kill the previous ramp
-				del ramp[layerkey]
 			#start a new ramp on this keyword
 			ramp.setdefault(layerkey , {'reminder' :modul8.getValue(keyword,layer_index) , 'dest_value' : maxValue , 'time' : restoreInterpolation , 'keyword' : keyword , 'layer' : layer_index})
 			#apply the ramp
@@ -96,12 +97,12 @@ ramp = {}</string>
 #print 'ELAPSED' , elapsed
 if count &gt; 1/30 :
 	for layerkey in ramp.keys():
-		print ramp.keys()
+		#print ramp.keys()
 		ramp[layerkey]['tmp'] =modul8.getValue(ramp[layerkey]['keyword'],ramp[layerkey]['layer'])-ramp[layerkey]['rate'] * count
 		if (0&lt;=ramp[layerkey]['rate']  and ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']&lt;0) or (ramp[layerkey]['rate'] &lt;0 and 0&lt;ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']) :
 			modul8.setValue(ramp[layerkey]['keyword'], ramp[layerkey]['dest_value'],ramp[layerkey]['layer'])
 			del ramp[layerkey]
-			print "FIN DE L'AUTOMATION"
+			#print "FIN DE L'AUTOMATION"
 		else :
 			#print "AUTOMATION"
 			modul8.setValue(ramp[layerkey]['keyword'] , ramp[layerkey]['tmp'] , ramp[layerkey]['layer'])
