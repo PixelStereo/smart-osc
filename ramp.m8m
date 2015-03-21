@@ -31,9 +31,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>1493</real>
+		<real>824</real>
 		<key>WINDOW_Y</key>
-		<real>444</real>
+		<real>499</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -45,7 +45,7 @@
 	if '/' == param['address'][0]:
 		#this start with a slash
 		#print it please
-		print "OSC INPUT : ", param['address'] , param['args']
+		#print "OSC INPUT : ", param['address'] , param['args']
 		#if it has 2 args I would excpect value2go and time2go
 		if len(param['args']) &gt; 1:
 			restoreInterpolation=param['args'][1]/1000
@@ -53,41 +53,47 @@
 			restoreInterpolation=0
 		#print 'TIME2GO' , restoreInterpolation * 1000
 		maxValue = float(param['args'][0])
-		#print 'VALUE2GO' ,maxValue
-		#translate OSC address to modul8 keyword language
+		#print 'VALUE2GO' ,maxValue	
 		keyword = param['address']
-		keyword = keyword.split('/')[1:]
-		if keyword[0] == 'master':
-			layer_index = 0
-			keyword = 'ctrl_' + '_'.join(keyword)
-		else:
-			layer_index = keyword[0].split('.')[1]
-			layer_index = int(layer_index)
-			keyword = keyword[1:]
-			keyword = 'ctrl_layer_' + '_'.join(keyword)
-		#print 'LAYER_INDEX' ,  layer_index
-		#end of translation
+		#translate OSC keyword (layer.x/keyword) to modul8 keyword (keyword/x)
+		keyword , layer = osc2modul8(keyword , 0)
+		#print 'KEYWORD RETURNED' , keyword
+		#print 'LAYER RETURNED' , layer
 		#print 'GO'
+		layerkey = str(layer) + keyword
 		#if ramp is in progress on this keyword
+		if ramp.get(layerkey):
+			#kill the previous ramp
+			#print 'KILL' , ramp[layerkey]
+			del ramp[layerkey]	
 		if restoreInterpolation == 0:
-			modul8.setValue(keyword, maxValue , layer_index)
+			modul8.setValue(keyword, maxValue , layer)
 		else:
-			layerkey = str(layer_index) + keyword
-			if ramp.get(layerkey):
-				#kill the previous ramp
-				del ramp[layerkey]
 			#start a new ramp on this keyword
-			ramp.setdefault(layerkey , {'reminder' :modul8.getValue(keyword,layer_index) , 'dest_value' : maxValue , 'time' : restoreInterpolation , 'keyword' : keyword , 'layer' : layer_index})
+			ramp.setdefault(layerkey , {'reminder' :modul8.getValue(keyword,layer) , 'dest_value' : maxValue , 'time' : restoreInterpolation , 'keyword' : keyword , 'layer' : layer})
 			#apply the ramp
 			ramp[layerkey]['rate'] = (ramp[layerkey]['reminder'] - ramp[layerkey]['dest_value'])/ramp[layerkey]['time']</string>
 	<key>SCRIPT_INIT</key>
-	<string>import math
-
+	<string>#import math
 count = 0
-#valueReminder=None
-#restoreRate=None
-#restoreValue=None
-ramp = {}</string>
+ramp = {}
+
+# translate OSC address to modul8 keyword language
+# /layer.1/alpha =&gt; ctrl_layer_alpha , 1
+# /master/alpha =&gt; ctrl_layer_alpha , 0
+def osc2modul8(keyword , layer):
+	keyword = keyword.split('/')[1:]				
+	if keyword[0] == 'master':
+		layer_index = 0
+		keyword = 'ctrl_' + '_'.join(keyword)
+	else:
+		layer = keyword[0].split('.')[1]
+		layer = int(layer)
+		keyword = keyword[1:]
+		keyword = 'ctrl_layer_' + '_'.join(keyword)
+	#print 'LAYER' ,  layer
+	#print 'KEYWORD' , keyword
+	return keyword , layer</string>
 	<key>SCRIPT_KEYWORDEVENT</key>
 	<string></string>
 	<key>SCRIPT_MESSAGE</key>
@@ -100,12 +106,12 @@ ramp = {}</string>
 #print 'ELAPSED' , elapsed
 if count &gt; 1/30 :
 	for layerkey in ramp.keys():
-		print ramp.keys()
+		#print ramp.keys()
 		ramp[layerkey]['tmp'] =modul8.getValue(ramp[layerkey]['keyword'],ramp[layerkey]['layer'])-ramp[layerkey]['rate'] * count
 		if (0&lt;=ramp[layerkey]['rate']  and ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']&lt;0) or (ramp[layerkey]['rate'] &lt;0 and 0&lt;ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']) :
 			modul8.setValue(ramp[layerkey]['keyword'], ramp[layerkey]['dest_value'],ramp[layerkey]['layer'])
 			del ramp[layerkey]
-			print "FIN DE L'AUTOMATION"
+			#print "FIN DE L'AUTOMATION"
 		else :
 			#print "AUTOMATION"
 			modul8.setValue(ramp[layerkey]['keyword'] , ramp[layerkey]['tmp'] , ramp[layerkey]['layer'])
