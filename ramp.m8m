@@ -31,9 +31,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>824</real>
+		<real>854</real>
 		<key>WINDOW_Y</key>
-		<real>499</real>
+		<real>887</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -78,7 +78,7 @@
 count = 0
 ramp = {}
 
-# translate OSC address to modul8 keyword language
+# Function to translate OSC address to modul8 keyword language
 # /layer.1/alpha =&gt; ctrl_layer_alpha , 1
 # /master/alpha =&gt; ctrl_layer_alpha , 0
 def osc2modul8(keyword , layer):
