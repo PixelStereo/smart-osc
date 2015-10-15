@@ -5,13 +5,116 @@
 	<key>AUTHOR</key>
 	<string>Iduun</string>
 	<key>CONTROLS</key>
-	<array/>
+	<array>
+		<dict>
+			<key>AUTOSERIALIZE</key>
+			<integer>0</integer>
+			<key>CAPTION</key>
+			<string>This module translate OSC messages to Modul8 keyword.
+
+/layer.1/alpha =&gt; /md8key/ctrl_layer_alpha/1
+/master/alpha =&gt;  /md8key/ctrl_layer_alpha/0
+
+If you send one value, the parameter will go to this value immediatly.
+But you can append the value with a time in milliseconds…</string>
+			<key>CONTINOUS_MODE</key>
+			<false/>
+			<key>DEFAULT_FLOAT_VALUE_0</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_1</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_4</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_5</key>
+			<real>1.6212958658533792e+17</real>
+			<key>EXC_GROUP</key>
+			<string></string>
+			<key>GROUP</key>
+			<string></string>
+			<key>HEIGHT</key>
+			<real>162.25</real>
+			<key>HIDDEN</key>
+			<integer>0</integer>
+			<key>LINEFEED_MODE</key>
+			<false/>
+			<key>LISTBOX_INIT_MODE</key>
+			<string>INIT_WITH_STRING_LIST</string>
+			<key>LISTBOX_STRING_LIST</key>
+			<string></string>
+			<key>LISTBOX_VALUE_MODE</key>
+			<string>ABS_POSITION</string>
+			<key>LIVE_MODE</key>
+			<false/>
+			<key>MAX_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_1</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_2</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_3</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_4</key>
+			<real>1.3826143222711221e-226</real>
+			<key>MAX_FLOAT_VALUE_5</key>
+			<real>1.0167052324637695e-316</real>
+			<key>MIN_FLOAT_VALUE_0</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_1</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_4</key>
+			<real>5.2635442471208903e-315</real>
+			<key>MIN_FLOAT_VALUE_5</key>
+			<real>0.0</real>
+			<key>NAME</key>
+			<string>Untitled</string>
+			<key>PREVIEW_MEDIA_MODE</key>
+			<integer>0</integer>
+			<key>RADIUS_0</key>
+			<real>4</real>
+			<key>RADIUS_1</key>
+			<real>4</real>
+			<key>RADIUS_2</key>
+			<real>4</real>
+			<key>RADIUS_3</key>
+			<real>4</real>
+			<key>SCRIPT_MESSAGE</key>
+			<string></string>
+			<key>SELECTED</key>
+			<false/>
+			<key>SHAPE_DOTS</key>
+			<true/>
+			<key>TEXT_ALIGNEMENT</key>
+			<string>LEFT</string>
+			<key>TOGGLE_MODE</key>
+			<false/>
+			<key>TYPE</key>
+			<string>TEXTCAPTIONG</string>
+			<key>UI_MAPS</key>
+			<array/>
+			<key>UNIQUE_ID</key>
+			<integer>93</integer>
+			<key>WIDTH</key>
+			<real>259.47265625</real>
+			<key>X</key>
+			<real>24</real>
+			<key>Y</key>
+			<real>8</real>
+		</dict>
+	</array>
 	<key>DESCRIPTION</key>
 	<string> ------&gt; contact@iduun.com</string>
 	<key>MODULE_AUTOFLUSH</key>
 	<false/>
 	<key>MODULE_CONTROL_ID_COUNTER</key>
-	<integer>92</integer>
+	<integer>93</integer>
 	<key>MODULE_LAYER_CONTEXTUAL</key>
 	<false/>
 	<key>MODULE_RESETDIRECTKEY_PAUSED</key>
@@ -31,9 +134,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>854</real>
+		<real>1040</real>
 		<key>WINDOW_Y</key>
-		<real>887</real>
+		<real>762</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -124,8 +227,8 @@ if count &gt; 1/30 :
 	<key>VERSION</key>
 	<string>0.1</string>
 	<key>WINDOW_HEIGHT</key>
-	<real>130</real>
+	<real>210</real>
 	<key>WINDOW_WIDTH</key>
-	<real>260</real>
+	<real>300</real>
 </dict>
 </plist>
