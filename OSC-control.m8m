@@ -104,9 +104,297 @@ But you can append the value with a time in milliseconds…</string>
 			<key>WIDTH</key>
 			<real>259.47265625</real>
 			<key>X</key>
-			<real>24</real>
+			<real>9</real>
 			<key>Y</key>
+			<real>25</real>
+		</dict>
+		<dict>
+			<key>AUTOSERIALIZE</key>
+			<integer>1</integer>
+			<key>CAPTION</key>
+			<string>Github repository</string>
+			<key>CONTINOUS_MODE</key>
+			<false/>
+			<key>DEFAULT_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>DEFAULT_FLOAT_VALUE_1</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_4</key>
+			<real>2.5150190962362712e-99</real>
+			<key>DEFAULT_FLOAT_VALUE_5</key>
+			<real>1.2122731125303017e-314</real>
+			<key>EXC_GROUP</key>
+			<string></string>
+			<key>GROUP</key>
+			<string></string>
+			<key>HEIGHT</key>
+			<real>20.62890625</real>
+			<key>HIDDEN</key>
+			<integer>0</integer>
+			<key>LINEFEED_MODE</key>
+			<false/>
+			<key>LISTBOX_INIT_MODE</key>
+			<string>INIT_WITH_STRING_LIST</string>
+			<key>LISTBOX_STRING_LIST</key>
+			<string></string>
+			<key>LISTBOX_VALUE_MODE</key>
+			<string>ABS_POSITION</string>
+			<key>LIVE_MODE</key>
+			<false/>
+			<key>MAX_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_1</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_2</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_3</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_4</key>
+			<real>7.2911271534069144e-304</real>
+			<key>MAX_FLOAT_VALUE_5</key>
+			<real>-1.2556742745660991e+299</real>
+			<key>MIN_FLOAT_VALUE_0</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_1</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_4</key>
+			<real>3.4814006093604532e-315</real>
+			<key>MIN_FLOAT_VALUE_5</key>
+			<real>9.8205839488890555e-91</real>
+			<key>NAME</key>
+			<string>open_issues</string>
+			<key>PREVIEW_MEDIA_MODE</key>
+			<integer>0</integer>
+			<key>RADIUS_0</key>
+			<real>4</real>
+			<key>RADIUS_1</key>
+			<real>4</real>
+			<key>RADIUS_2</key>
+			<real>4</real>
+			<key>RADIUS_3</key>
+			<real>4</real>
+			<key>SCRIPT_MESSAGE</key>
+			<string>open_issues</string>
+			<key>SELECTED</key>
+			<false/>
+			<key>SHAPE_DOTS</key>
+			<true/>
+			<key>TEXT_ALIGNEMENT</key>
+			<string>LEFT</string>
+			<key>TOGGLE_MODE</key>
+			<false/>
+			<key>TYPE</key>
+			<string>BUTTON</string>
+			<key>UI_MAPS</key>
+			<array/>
+			<key>UNIQUE_ID</key>
+			<integer>96</integer>
+			<key>WIDTH</key>
+			<real>100.48828125</real>
+			<key>X</key>
 			<real>8</real>
+			<key>Y</key>
+			<real>3</real>
+		</dict>
+		<dict>
+			<key>AUTOSERIALIZE</key>
+			<integer>1</integer>
+			<key>CAPTION</key>
+			<string>print INPUT</string>
+			<key>CONTINOUS_MODE</key>
+			<false/>
+			<key>DEFAULT_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>DEFAULT_FLOAT_VALUE_1</key>
+			<real>1</real>
+			<key>DEFAULT_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_4</key>
+			<real>8.4879831638610893e-314</real>
+			<key>DEFAULT_FLOAT_VALUE_5</key>
+			<real>4.9406564584124654e-323</real>
+			<key>EXC_GROUP</key>
+			<string></string>
+			<key>GROUP</key>
+			<string></string>
+			<key>HEIGHT</key>
+			<real>20.4453125</real>
+			<key>HIDDEN</key>
+			<integer>0</integer>
+			<key>LINEFEED_MODE</key>
+			<false/>
+			<key>LISTBOX_INIT_MODE</key>
+			<string>INIT_WITH_STRING_LIST</string>
+			<key>LISTBOX_STRING_LIST</key>
+			<string></string>
+			<key>LISTBOX_VALUE_MODE</key>
+			<string>ABS_POSITION</string>
+			<key>LIVE_MODE</key>
+			<false/>
+			<key>MAX_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_1</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_2</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_3</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_4</key>
+			<real>2.0430087415929317e+235</real>
+			<key>MAX_FLOAT_VALUE_5</key>
+			<real>0.0027956501483572555</real>
+			<key>MIN_FLOAT_VALUE_0</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_1</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_4</key>
+			<real>6.2024603364684129e-248</real>
+			<key>MIN_FLOAT_VALUE_5</key>
+			<real>2.7813423231340067e-309</real>
+			<key>NAME</key>
+			<string>print_osc_input</string>
+			<key>PREVIEW_MEDIA_MODE</key>
+			<integer>0</integer>
+			<key>RADIUS_0</key>
+			<real>4</real>
+			<key>RADIUS_1</key>
+			<real>4</real>
+			<key>RADIUS_2</key>
+			<real>4</real>
+			<key>RADIUS_3</key>
+			<real>4</real>
+			<key>SCRIPT_MESSAGE</key>
+			<string>log_osc_in</string>
+			<key>SELECTED</key>
+			<false/>
+			<key>SHAPE_DOTS</key>
+			<true/>
+			<key>TEXT_ALIGNEMENT</key>
+			<string>LEFT</string>
+			<key>TOGGLE_MODE</key>
+			<true/>
+			<key>TYPE</key>
+			<string>BUTTON</string>
+			<key>UI_MAPS</key>
+			<array/>
+			<key>UNIQUE_ID</key>
+			<integer>98</integer>
+			<key>WIDTH</key>
+			<real>73.40234375</real>
+			<key>X</key>
+			<real>143</real>
+			<key>Y</key>
+			<real>3</real>
+		</dict>
+		<dict>
+			<key>AUTOSERIALIZE</key>
+			<integer>1</integer>
+			<key>CAPTION</key>
+			<string>print OUTPUT</string>
+			<key>CONTINOUS_MODE</key>
+			<false/>
+			<key>DEFAULT_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>DEFAULT_FLOAT_VALUE_1</key>
+			<real>1</real>
+			<key>DEFAULT_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>DEFAULT_FLOAT_VALUE_4</key>
+			<real>8.4879831638610893e-314</real>
+			<key>DEFAULT_FLOAT_VALUE_5</key>
+			<real>4.9406564584124654e-323</real>
+			<key>EXC_GROUP</key>
+			<string></string>
+			<key>GROUP</key>
+			<string></string>
+			<key>HEIGHT</key>
+			<real>20.4453125</real>
+			<key>HIDDEN</key>
+			<integer>0</integer>
+			<key>LINEFEED_MODE</key>
+			<false/>
+			<key>LISTBOX_INIT_MODE</key>
+			<string>INIT_WITH_STRING_LIST</string>
+			<key>LISTBOX_STRING_LIST</key>
+			<string></string>
+			<key>LISTBOX_VALUE_MODE</key>
+			<string>ABS_POSITION</string>
+			<key>LIVE_MODE</key>
+			<false/>
+			<key>MAX_FLOAT_VALUE_0</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_1</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_2</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_3</key>
+			<real>1</real>
+			<key>MAX_FLOAT_VALUE_4</key>
+			<real>2.0430087415929317e+235</real>
+			<key>MAX_FLOAT_VALUE_5</key>
+			<real>0.0027956501483572555</real>
+			<key>MIN_FLOAT_VALUE_0</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_1</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_2</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_3</key>
+			<real>0.0</real>
+			<key>MIN_FLOAT_VALUE_4</key>
+			<real>6.2024603364684129e-248</real>
+			<key>MIN_FLOAT_VALUE_5</key>
+			<real>2.7813423231340067e-309</real>
+			<key>NAME</key>
+			<string>print_osc_output</string>
+			<key>PREVIEW_MEDIA_MODE</key>
+			<integer>0</integer>
+			<key>RADIUS_0</key>
+			<real>4</real>
+			<key>RADIUS_1</key>
+			<real>4</real>
+			<key>RADIUS_2</key>
+			<real>4</real>
+			<key>RADIUS_3</key>
+			<real>4</real>
+			<key>SCRIPT_MESSAGE</key>
+			<string>log_osc_in</string>
+			<key>SELECTED</key>
+			<false/>
+			<key>SHAPE_DOTS</key>
+			<true/>
+			<key>TEXT_ALIGNEMENT</key>
+			<string>LEFT</string>
+			<key>TOGGLE_MODE</key>
+			<true/>
+			<key>TYPE</key>
+			<string>BUTTON</string>
+			<key>UI_MAPS</key>
+			<array/>
+			<key>UNIQUE_ID</key>
+			<integer>101</integer>
+			<key>WIDTH</key>
+			<real>73.40234375</real>
+			<key>X</key>
+			<real>221</real>
+			<key>Y</key>
+			<real>4</real>
 		</dict>
 	</array>
 	<key>DESCRIPTION</key>
@@ -114,7 +402,7 @@ But you can append the value with a time in milliseconds…</string>
 	<key>MODULE_AUTOFLUSH</key>
 	<false/>
 	<key>MODULE_CONTROL_ID_COUNTER</key>
-	<integer>93</integer>
+	<integer>101</integer>
 	<key>MODULE_LAYER_CONTEXTUAL</key>
 	<false/>
 	<key>MODULE_RESETDIRECTKEY_PAUSED</key>
@@ -134,9 +422,9 @@ But you can append the value with a time in milliseconds…</string>
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>1040</real>
+		<real>1316</real>
 		<key>WINDOW_Y</key>
-		<real>762</real>
+		<real>818</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -146,9 +434,7 @@ But you can append the value with a time in milliseconds…</string>
 	<string>if type == 'OSC':
 	#this is an OSC message
 	if '/' == param['address'][0]:
-		#this start with a slash
-		#print it please
-		#print "OSC INPUT : ", param['address'] , param['args']
+		if print_osc_input : print "OSC INPUT : ", param['address'] , param['args']
 		#if it has 2 args I would excpect value2go and time2go
 		if len(param['args']) &gt; 1:
 			restoreInterpolation=param['args'][1]/1000
@@ -181,26 +467,50 @@ But you can append the value with a time in milliseconds…</string>
 count = 0
 ramp = {}
 
+#interface
+print_osc_input = False
+print_osc_output = False
+open_issues_url = 'https://github.com/PixelStereo/osc-control'
+
+
 # Function to translate OSC address to modul8 keyword language
 # /layer.1/alpha =&gt; ctrl_layer_alpha , 1
 # /master/alpha =&gt; ctrl_layer_alpha , 0
-def osc2modul8(keyword , layer):
+def osc2modul8(keyword , layer_index):
 	keyword = keyword.split('/')[1:]				
 	if keyword[0] == 'master':
 		layer_index = 0
 		keyword = 'ctrl_' + '_'.join(keyword)
+	elif keyword[0] == 'mask':
+		layer_index = -1
+		keyword = 'direct_globalMask_' + '_'.join(keyword[1:])
 	else:
-		layer = keyword[0].split('.')[1]
-		layer = int(layer)
+		layer_index = keyword[0].split('.')[1]
+		# support wildcard for instances
+		if layer_index == '*':
+			layer_index = -1
+		else:
+			layer_index = int(layer_index)
 		keyword = keyword[1:]
 		keyword = 'ctrl_layer_' + '_'.join(keyword)
-	#print 'LAYER' ,  layer
+		if keyword == 'ctrl_layer_auto_scaleXY' : 
+			keyword = 'ctrl_layer_auto_scaleXY_'
+		if keyword =='ctrl_layer_auto_moveSizefactor':
+			keyword = 'ctrl_layer_auto_moveSize_factor'
+	#print 'LAYER' ,  layer_index
 	#print 'KEYWORD' , keyword
-	return keyword , layer</string>
+	return keyword , layer_index</string>
 	<key>SCRIPT_KEYWORDEVENT</key>
 	<string></string>
 	<key>SCRIPT_MESSAGE</key>
-	<string></string>
+	<string>#message from the module interface
+if msg == 'log_osc_in' :
+	print_osc_input =  param['value']
+elif msg == 'log_osc_out' :
+	print_osc_output = param['value']
+elif msg == 'open_issues' :
+	if param['value'] == 1:
+		webbrowser.open(open_issues_url,new=2)</string>
 	<key>SCRIPT_PAUSEEVENT</key>
 	<string></string>
 	<key>SCRIPT_PERIODICAL</key>
