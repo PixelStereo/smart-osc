@@ -422,9 +422,9 @@ But you can append the value with a time in milliseconds…</string>
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>1316</real>
+		<real>1066</real>
 		<key>WINDOW_Y</key>
-		<real>818</real>
+		<real>656</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -470,7 +470,7 @@ ramp = {}
 #interface
 print_osc_input = False
 print_osc_output = False
-open_issues_url = 'https://github.com/PixelStereo/osc-control'
+open_issues_url = 'https://github.com/PixelStereo/smart-osc'
 
 
 # Function to translate OSC address to modul8 keyword language
