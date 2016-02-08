@@ -10,13 +10,7 @@
 			<key>AUTOSERIALIZE</key>
 			<integer>0</integer>
 			<key>CAPTION</key>
-			<string>This module translate OSC messages to Modul8 keyword.
-
-/layer.1/alpha =&gt; /md8key/ctrl_layer_alpha/1
-/master/alpha =&gt;  /md8key/ctrl_layer_alpha/0
-
-If you send one value, the parameter will go to this value immediatly.
-But you can append the value with a time in milliseconds…</string>
+			<string>Version 0.1.1</string>
 			<key>CONTINOUS_MODE</key>
 			<false/>
 			<key>DEFAULT_FLOAT_VALUE_0</key>
@@ -36,7 +30,7 @@ But you can append the value with a time in milliseconds…</string>
 			<key>GROUP</key>
 			<string></string>
 			<key>HEIGHT</key>
-			<real>162.25</real>
+			<real>44.17578125</real>
 			<key>HIDDEN</key>
 			<integer>0</integer>
 			<key>LINEFEED_MODE</key>
@@ -102,11 +96,11 @@ But you can append the value with a time in milliseconds…</string>
 			<key>UNIQUE_ID</key>
 			<integer>93</integer>
 			<key>WIDTH</key>
-			<real>259.47265625</real>
+			<real>288.83984375</real>
 			<key>X</key>
 			<real>9</real>
 			<key>Y</key>
-			<real>25</real>
+			<real>2</real>
 		</dict>
 		<dict>
 			<key>AUTOSERIALIZE</key>
@@ -202,7 +196,7 @@ But you can append the value with a time in milliseconds…</string>
 			<key>X</key>
 			<real>8</real>
 			<key>Y</key>
-			<real>3</real>
+			<real>8</real>
 		</dict>
 		<dict>
 			<key>AUTOSERIALIZE</key>
@@ -296,9 +290,9 @@ But you can append the value with a time in milliseconds…</string>
 			<key>WIDTH</key>
 			<real>73.40234375</real>
 			<key>X</key>
-			<real>143</real>
+			<real>144</real>
 			<key>Y</key>
-			<real>3</real>
+			<real>8</real>
 		</dict>
 		<dict>
 			<key>AUTOSERIALIZE</key>
@@ -392,9 +386,9 @@ But you can append the value with a time in milliseconds…</string>
 			<key>WIDTH</key>
 			<real>73.40234375</real>
 			<key>X</key>
-			<real>221</real>
+			<real>225</real>
 			<key>Y</key>
-			<real>4</real>
+			<real>8</real>
 		</dict>
 	</array>
 	<key>DESCRIPTION</key>
@@ -422,9 +416,9 @@ But you can append the value with a time in milliseconds…</string>
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>1066</real>
+		<real>770</real>
 		<key>WINDOW_Y</key>
-		<real>656</real>
+		<real>678</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -466,6 +460,8 @@ But you can append the value with a time in milliseconds…</string>
 	<string>#import math
 count = 0
 ramp = {}
+
+import webbrowser
 
 #interface
 print_osc_input = False
@@ -537,7 +533,7 @@ if count &gt; 1/30 :
 	<key>VERSION</key>
 	<string>0.1</string>
 	<key>WINDOW_HEIGHT</key>
-	<real>210</real>
+	<real>80</real>
 	<key>WINDOW_WIDTH</key>
 	<real>300</real>
 </dict>
