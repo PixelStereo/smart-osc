@@ -5,6 +5,7 @@ Modul8 OSC module with user-friendly adresses and timed actions
 Download [the latest version](https://github.com/PixelStereo/smart-osc/releases/latest).    
 Unzip the file into your Modules folder : 
     /Applications/Modul8/Modules
+restart Modul8
     
 ### QuickStart
 This module rewrite Modul8 keyword as hierarchical OSC addresses. It uses dot as an instance separator for layers.
