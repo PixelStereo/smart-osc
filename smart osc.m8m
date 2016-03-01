@@ -10,7 +10,7 @@
 			<key>AUTOSERIALIZE</key>
 			<integer>0</integer>
 			<key>CAPTION</key>
-			<string>Version 0.1.1</string>
+			<string>Version 0.1.2</string>
 			<key>CONTINOUS_MODE</key>
 			<false/>
 			<key>DEFAULT_FLOAT_VALUE_0</key>
@@ -416,9 +416,9 @@
 		<key>WINDOW_MINIMIZED</key>
 		<false/>
 		<key>WINDOW_X</key>
-		<real>770</real>
+		<real>760</real>
 		<key>WINDOW_Y</key>
-		<real>678</real>
+		<real>830</real>
 	</dict>
 	<key>SCRIPT_CLEANUP</key>
 	<string></string>
@@ -455,7 +455,8 @@
 			#start a new ramp on this keyword
 			ramp.setdefault(layerkey , {'reminder' :modul8.getValue(keyword,layer) , 'dest_value' : maxValue , 'time' : restoreInterpolation , 'keyword' : keyword , 'layer' : layer})
 			#apply the ramp
-			ramp[layerkey]['rate'] = (ramp[layerkey]['reminder'] - ramp[layerkey]['dest_value'])/ramp[layerkey]['time']</string>
+			if ramp[layerkey]['reminder'] &gt;= 0:
+				ramp[layerkey]['rate'] = (ramp[layerkey]['reminder'] - ramp[layerkey]['dest_value'])/ramp[layerkey]['time']</string>
 	<key>SCRIPT_INIT</key>
 	<string>#import math
 count = 0
@@ -516,14 +517,18 @@ elif msg == 'open_issues' :
 if count &gt; 1/30 :
 	for layerkey in ramp.keys():
 		#print ramp.keys()
-		ramp[layerkey]['tmp'] =modul8.getValue(ramp[layerkey]['keyword'],ramp[layerkey]['layer'])-ramp[layerkey]['rate'] * count
-		if (0&lt;=ramp[layerkey]['rate']  and ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']&lt;0) or (ramp[layerkey]['rate'] &lt;0 and 0&lt;ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']) :
-			modul8.setValue(ramp[layerkey]['keyword'], ramp[layerkey]['dest_value'],ramp[layerkey]['layer'])
-			del ramp[layerkey]
-			#print "FIN DE L'AUTOMATION"
-		else :
-			#print "AUTOMATION"
-			modul8.setValue(ramp[layerkey]['keyword'] , ramp[layerkey]['tmp'] , ramp[layerkey]['layer'])
+		try:
+			ramp[layerkey]['tmp'] =modul8.getValue(ramp[layerkey]['keyword'],ramp[layerkey]['layer'])-ramp[layerkey]['rate'] * count
+			if (0&lt;=ramp[layerkey]['rate']  and ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']&lt;0) or (ramp[layerkey]['rate'] &lt;0 and 0&lt;ramp[layerkey]['tmp']-ramp[layerkey]['dest_value']) :
+				modul8.setValue(ramp[layerkey]['keyword'], ramp[layerkey]['dest_value'],ramp[layerkey]['layer'])
+				del ramp[layerkey]
+				#print "FIN DE L'AUTOMATION"
+			else :
+				#print "AUTOMATION"
+				modul8.setValue(ramp[layerkey]['keyword'] , ramp[layerkey]['tmp'] , ramp[layerkey]['layer'])
+		except KeyError:
+			#print 'da', layerkey
+			pass
 	count = 0
 	#print 'COUNTER A ZERO'</string>
 	<key>SCRIPT_SERIALIZE</key>
