@@ -10,7 +10,7 @@
 			<key>AUTOSERIALIZE</key>
 			<integer>0</integer>
 			<key>CAPTION</key>
-			<string>Version 0.1.2</string>
+			<string>Version 0.1.3</string>
 			<key>CONTINOUS_MODE</key>
 			<false/>
 			<key>DEFAULT_FLOAT_VALUE_0</key>
@@ -431,7 +431,7 @@
 		if print_osc_input : print "OSC INPUT : ", param['address'] , param['args']
 		#if it has 2 args I would excpect value2go and time2go
 		if len(param['args']) &gt; 1:
-			restoreInterpolation=param['args'][1]/1000
+			restoreInterpolation=float(param['args'][1])/1000
 		else:
 			restoreInterpolation=0
 		#print 'TIME2GO' , restoreInterpolation * 1000
